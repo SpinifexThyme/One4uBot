@@ -21,7 +21,7 @@ from userbot.events import register
 async def who(event):
 
     await event.edit(
-        "`Sit tight while I steal some data from *Global Network Zone*...`")
+        "`Duduk diam selama gue mencuri beberapa data dari *Global Network Zone*...`")
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -31,7 +31,7 @@ async def who(event):
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        event.edit("`Could not fetch info of that user.`")
+        event.edit("`Defuk malah g bisa dapetin info dari dia sir.`")
         return
 
     message_id_to_reply = event.message.reply_to_msg_id
@@ -98,7 +98,7 @@ async def fetch_info(replied_user, event):
                              offset=42,
                              max_id=0,
                              limit=80))
-    replied_user_profile_photos_count = "Person needs help with uploading profile picture."
+    replied_user_profile_photos_count = "Nih orang ada masalah hidup apa sih jadi g pake Foto Profile."
     try:
         replied_user_profile_photos_count = replied_user_profile_photos.count
     except AttributeError:
@@ -122,12 +122,12 @@ async def fetch_info(replied_user, event):
                                                       str(user_id) + ".jpg",
                                                       download_big=True)
     first_name = first_name.replace(
-        "\u2060", "") if first_name else ("This User has no First Name")
+        "\u2060", "") if first_name else ("Lah kok g ada nama depannya")
     last_name = last_name.replace(
-        "\u2060", "") if last_name else ("This User has no Last Name")
+        "\u2060", "") if last_name else ("Lah kok g ada nama belakangnya")
     username = "@{}".format(username) if username else (
-        "This User has no Username")
-    user_bio = "This User has no About" if not user_bio else user_bio
+        "User ini g punya username, dih bikin susah ngetag aja")
+    user_bio = "User ini g punya Bio" if not user_bio else user_bio
 
     caption = "<b>USER INFO:</b>\n\n"
     caption += f"First Name: {first_name}\n"
