@@ -19,16 +19,16 @@ from telethon.tl.types import InputStickerSetID
 from telethon.tl.types import DocumentAttributeSticker
 
 KANGING_STR = [
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
-    "Inviting this sticker over to my pack...",
+    "Dengan kekuatan Sihir, gue kang sticker ini...",
+    "Menjiplak hehe...",
+    "Memasukkan sticker ini ke pack gue...",
     "Kanging this sticker...",
-    "Hey that's a nice sticker!\nMind if I kang?!..",
-    "hehe me stel ur stikér\nhehe.",
-    "Ay look over there (☉｡☉)!→\nWhile I kang this...",
-    "Roses are red violets are blue, kanging this sticker so my pacc looks cool",
-    "Imprisoning this sticker...",
-    "Mr.Steal Your Sticker is stealing this sticker... ",
+    "Eh sticker nya bagus!\nGue ambil yaa?!..",
+    "Hehe gue ambil sticker lu\nHehe.",
+    "Eh liat disana tuu (☉｡☉)!→\nSelama gue kanging sticker ini...",
+    "Pergi ke pasar bersama bini\nDi tengah jalan ketemu koin,\nGue ambil sticker ini\nJadi pack gue terlihat keren",
+    "Mencuri Sticker ini...",
+    "Ms.Pencuri mencuri sticker ini... ",
 ]
 
 
@@ -75,7 +75,7 @@ async def kang(args):
             await args.edit("`Unsupported File!`")
             return
     else:
-        await args.edit("`I can't kang that...`")
+        await args.edit("`Gue g bisa bikin stickernya...`")
         return
 
     if photo:
@@ -237,8 +237,8 @@ async def kang(args):
                 # Ensure user doesn't get spamming notifications
                 await bot.send_read_acknowledge(conv.chat_id)
 
-        await args.edit(f"`Sticker kanged successfully!`\
-            \nPack can be found [here](t.me/addstickers/{packname})",
+        await args.edit(f"`Yappari, Stickernya berhasil di kang!`\
+            \nWoy stickernya bisa didapat disini [disini](t.me/addstickers/{packname})",
                         parse_mode='md')
 
 
