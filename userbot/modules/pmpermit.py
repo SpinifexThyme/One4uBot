@@ -17,11 +17,13 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`Hey! Sorry, I haven't approved you to PM yet.`\n"
-    "`Please wait for me to look in`\n"
-    "`Until then, please don't spam my PM..`\n"
-    "`Thank you for being patient.`\n\n"
-    "`*This is an automated message`")
+    "`Oh hai! Maaf, gue belum membolehkan lu nge chat gue.`\n"
+    "`Tunggu aja yaa sampai gue membaca chat kamu ini`\n"
+    "`Jadi, jangan SPAM chat dulu yaa, please..`\n"
+    "`Klo lu masih ngeyel SPAM chat, mungkin gue bakal memblock lu`\n"
+    "`Sabar aja dulu yaa, Hehe..`\n"
+    "`Makasih klo udh bersabar ^-^)/ hehe.`\n\n"
+    "`*Ini adalah pesan otomatis`")
 # =================================================================
 
 
@@ -70,8 +72,9 @@ async def permitpm(event):
 
                 if COUNT_PM[event.chat_id] > 4:
                     await event.respond(
-                        "`I didn't like you spamming my PM.`\n"
-                        "`You have been BLOCKED and reported as SPAM, wait a minute until i online.`"
+                        "`Oke.. gue g suka lu SPAM-SPAM chat terus.`\n"
+                        "`tadi sudah gue bilangin berkali agar jangan SPAM.`\n"
+                        "`Okey, akibatnya lu telah gue block dan direport sebagai SPAM, tunggu beberapa saat sampai gue online.`"
                     )
 
                     try:
@@ -183,10 +186,10 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        await apprvpm.edit("`User may already be approved.`")
+        await apprvpm.edit("`User mungkin sebelumnya sudah dibolehin ngechat.`")
         return
 
-    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `approved to PM!`")
+    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `Dibolehkan ngechat!`")
 
     async for message in apprvpm.client.iter_messages(apprvpm.chat_id,
                                                       from_user='me',
@@ -239,12 +242,12 @@ async def blockpm(block):
         aname = replied_user.id
         name0 = str(replied_user.first_name)
         await block.client(BlockRequest(replied_user.id))
-        await block.edit("`You has been blocked!`")
+        await block.edit("`lu telah di block!`")
         uid = replied_user.id
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit("`You has been blocked!`")
+        await block.edit("`lu telah di block!`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
