@@ -165,7 +165,7 @@ async def mention_afk(mention):
             if mention.sender_id not in USERS:
                 if AFKREASON:
                     await mention.reply(str(choice(AFKSTR))
-                      f"\nGue OFF sejak {afk_since}."
+                      "\nGue OFF sejak {afk_since}."
                         f"\nKarena: `{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
