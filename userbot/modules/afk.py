@@ -73,7 +73,7 @@ async def set_afk(afk_e):
     if string:
         AFKREASON = string
         await afk_e.edit(f"Gue OFF!\
-        \nReason: `{string}`")
+        \nKarena: `{string}`")
     else:
         await afk_e.edit("Gue OFF!")
     if BOTLOG:
@@ -164,7 +164,7 @@ async def mention_afk(mention):
                 afk_since = f"`{int(seconds)}s` yang lalu"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"{random.choice(AFKSTR)}\n\
+                    await mention.reply(str(choice(AFKSTR)) f"\n\
                         \nGue OFF sejak {afk_since}.\
                         \nKarena: `{AFKREASON}`")
                 else:
@@ -174,7 +174,7 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"{random.choice(AFKSTR)}\n\
+                        await mention.reply(str(choice(AFKSTR)) f"\n\
                             \nGue masih OFF sejak {afk_since}.\
                             \nKarena: `{AFKREASON}`")
                     else:
@@ -242,7 +242,7 @@ async def afk_on_pm(sender):
                 afk_since = f"`{int(seconds)}s` yang lalu"
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"{random.choice(AFKSTR)}\n\
+                    await sender.reply(str(choice(AFKSTR)) f"\n\
                         \nGue OFF sejak {afk_since}.\
                         \nKarena: `{AFKREASON}`")
                 else:
@@ -252,7 +252,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply(f"{random.choice(AFKSTR)}\n\
+                        await sender.reply(str(choice(AFKSTR)) f"\n\
                             \nGue masih OFF sejak {afk_since}.\
                             \nKarena: `{AFKREASON}`")
                     else:
