@@ -164,8 +164,8 @@ async def mention_afk(mention):
                 afk_since = f"`{int(seconds)}s` yang lalu"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(str(choice(AFKSTR))"\nGue OFF sejak {afk_since}."
-                        f"\nKarena: `{AFKREASON}`")
+                    await mention.reply(f"Gue OFF sejak {afk_since}.\
+                        \nKarena: `{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -173,7 +173,7 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"\nGue masih OFF sejak {afk_since}.\
+                        await mention.reply(f"Gue masih OFF sejak {afk_since}.\
                             \nKarena: `{AFKREASON}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
@@ -240,7 +240,7 @@ async def afk_on_pm(sender):
                 afk_since = f"`{int(seconds)}s` yang lalu"
             if sender.sender_id not in USERS:
                 if AFKREASON:
-                    await sender.reply(f"\nGue OFF sejak {afk_since}.\
+                    await sender.reply(f"Gue OFF sejak {afk_since}.\
                         \nKarena: `{AFKREASON}`")
                 else:
                     await sender.reply(str(choice(AFKSTR)))
@@ -249,7 +249,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await sender.reply(f"\nGue masih OFF sejak {afk_since}.\
+                        await sender.reply(f"Gue masih OFF sejak {afk_since}.\
                             \nKarena: `{AFKREASON}`")
                     else:
                         await sender.reply(str(choice(AFKSTR)))
