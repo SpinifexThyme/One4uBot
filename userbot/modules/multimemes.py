@@ -271,7 +271,7 @@ async def mim(event):
         return
     else:
         await event.edit(
-            "```Transfiguration Time! Mwahaha Memifying this image! (」ﾟﾛﾟ)｣ ```"
+            "```Gambarnya Bagus! Mwahaha Menjiplak gambar ini! (」ﾟﾛﾟ)｣ ```"
         )
 
     chat = "@MemeAutobot"
@@ -292,7 +292,7 @@ async def mim(event):
             )
         if "Okay..." in response.text:
             await event.edit(
-                "```🛑 🤨 NANI?! This is not an image! This will take sum tym to convert to image... UwU 🧐 🛑```"
+                "```🛑 🤨 NANI?! OMAEWA MO SHINDEIRU.. Ini bukan gambar! Mungkin bakal agak lama jadinya nih mengeditnya... UwU 🧐 🛑```"
             )
             input_str = event.pattern_match.group(1)
             if event.reply_to_msg_id:
@@ -472,7 +472,7 @@ async def hazz(hazmat):
 
 @register(outgoing=True, pattern=r'^.df(:? |$)([1-8])?')
 async def fryerrr(fry):
-    await fry.edit("`Sending information...`")
+    await fry.edit("`KAMUIIII !!!!!!!!!!...`")
     level = fry.pattern_match.group(2)
     if fry.fwd_from:
         return
