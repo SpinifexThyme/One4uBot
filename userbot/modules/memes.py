@@ -1062,6 +1062,18 @@ async def love(event):
         return
 
 
+@register(outgoing=True, pattern="^.welkam$")
+async def welkam(event):
+    deq = deque(list("🇼‌🇪‌🇱‌🇨‌🇴‌🇲‌🇪‌"))
+    try:
+        for x in range(32):
+            await sleep(0.1)
+            await event.edit("".join(deq))
+            deq.rotate(1)
+    except BaseException:
+        return
+
+
 @register(outgoing=True, pattern="^.mock(?: |$)(.*)")
 async def spongemocktext(mock):
     """ Do it and find the real fun. """
@@ -1318,6 +1330,15 @@ async def gey(e):
                      "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")
 
 
+@register(outgoing=True, pattern="^.mgay$")
+async def mgey(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("`\n┈┈┈╭━━━━━━━━━━╮┈\n┈┈┈┃┊┊━━━━━┊┊━┃┈`"
+                     "\n┈┈┈┃┊┊╭━━━━╮╭━━╮\n┈┈┈┃┊┊┃╭━━╮┃┃╭╮┃\n┈┈┈┃┊┊┃╰━━╯┃┃╰╯┃`"
+                     "\n┈┈╭┻┊┊╰━━━━╯╰━━╯\n┈┈╰┳┊┊╰━━━━━━━┛┈\n┈┈┈┃┊┊┃┈Ur MAM GEY`"
+                     "\n┈┈┈┃┊┊┗━━━━━━━╮\n┈┈┈╰━━━━━━━━━━╯┈`")
+
+
 @register(outgoing=True, pattern="^.bot$")
 async def bot(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -1404,8 +1425,8 @@ CMD_HELP.update({
 \n[Available Actions: (typing, contact, game, location, voice, round, video, photo, document, cancel)]\
 \nUsage: Create fake chat actions, for fun. (Default action: typing)\
 \n\nAnd many more\
-\n.nou ; .bot ; .gey ; .gey ; .tf ; .paw ; .taco ; .nih ;\
-\n.fag ; .gtfo ; .stfu ; .lol ; .lool ; .fail ; .love\
+\n.nou ; .bot ; .gey ; .gay ; .mgay ; .tf ; .paw ; .taco ; .nih ;\
+\n.fag ; .gtfo ; .stfu ; .lol ; .lool ; .fail ; .welkam ; .love\
 \n.rain ; .earth ; .iwi ; .sayhi\
 \n\n\nThanks to 🅱️ottom🅱️ext🅱️ot (@NotAMemeBot) for some of these."
 })
