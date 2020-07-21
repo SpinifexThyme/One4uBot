@@ -1066,7 +1066,7 @@ async def love(event):
 async def welkam(event):
     deq = deque(list("----------🇼‌🇪‌🇱‌🇨‌🇴‌🇲‌🇪‌----------"))
     try:
-        for x in range(31):
+        for x in range(35):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
