@@ -49,7 +49,7 @@ async def figlet(fg):
         "colo": "colossal",
         "comp": "computer",
         "cont": "contessa",
-        "contr" "contrast",
+        "contr": "contrast",
         "cos": "cosmic",
         "cosm": "cosmike",
         "crick": "cricket",
