@@ -1064,9 +1064,9 @@ async def love(event):
 
 @register(outgoing=True, pattern="^.welkam$")
 async def welkam(event):
-    deq = deque(list("🇼‌🇪‌🇱‌🇨‌🇴‌🇲‌🇪‌"))
+    deq = deque(list("----------🇼‌🇪‌🇱‌🇨‌🇴‌🇲‌🇪‌----------"))
     try:
-        for x in range(32):
+        for x in range(31):
             await sleep(0.1)
             await event.edit("".join(deq))
             deq.rotate(1)
