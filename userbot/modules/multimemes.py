@@ -575,7 +575,7 @@ async def waifu(animu):
         else:
             await animu.answer("`No text given, hence the waifu ran away.`")
             return
-    animus = [20, 32, 33, 40, 41, 42, 58]
+    animus = [20, 32, 33, 37, 40, 41, 42, 58]
     sticcers = await bot.inline_query(
         "stickerizerbot", f"#{random.choice(animus)}{(deEmojify(text))}")
     await sticcers[0].click(animu.chat_id,
@@ -584,6 +584,24 @@ async def waifu(animu):
                             hide_via=True)
     await animu.delete()
 
+
+@register(outgoing=True, pattern="^.toon(?: |$)(.*)")
+async def toon(toony):
+    text = toony.pattern_match.group(1)
+    if not text:
+        if toony.is_reply:
+            text = (await toony.get_reply_message()).message
+        else:
+            await toony.answer("`No text given, hence the toon ran away.`")
+            return
+    toonys = [0, 3, 4, 7, 10, 11, 27, 28, 29, 31, 34, 35, 38, 39, 43, 44, 46, 47, 48, 50, 53, 54, 56, 57, 59, 60, 61, 62, 63]
+    sticcers = await bot.inline_query(
+        "stickerizerbot", f"#{random.choice(toonys)}{(deEmojify(text))}")
+    await sticcers[0].click(toony.chat_id,
+                            reply_to=toony.reply_to_msg_id,
+                            silent=True if toony.is_reply else False,
+                            hide_via=True)
+    await toony.delete()
 
 def deEmojify(inputString: str) -> str:
     return re.sub(EMOJI_PATTERN, '', inputString)
@@ -633,5 +651,13 @@ CMD_HELP.update({
     "waifu":
         ".waifu \
           \nUsage: Enchance your text with beautiful anime girl templates. \
+          \n@StickerizerBot"
+})
+
+
+CMD_HELP.update({
+    "toon":
+        ".toon \
+          \nUsage: Enchance your text with cartoon templates. \
           \n@StickerizerBot"
 })
