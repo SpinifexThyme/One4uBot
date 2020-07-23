@@ -48,13 +48,7 @@ async def goodbye_to_chat(event):
                 current_saved_goodbye_message = msg_o.message
             elif cgs and cgs.reply:
                 current_saved_cgs_message = cgs.reply
-            current_message = await event.reply(
-                current_saved_goodbye_message.format(my_first=my_first,
-                                                     my_last=my_last,
-                                                     my_fullname=my_fullname,
-                                                     my_username=my_username,
-                                                     my_mention=my_mention),
-                file=file_media)
+            current_message = await event.reply(file=file_media)
             update_previous_goodbye(event.chat_id, current_message.id)
 
 
