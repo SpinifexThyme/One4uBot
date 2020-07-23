@@ -49,7 +49,7 @@ async def goodbye_to_chat(event):
             elif cgs and cgs.reply:
                 current_saved_goodbye_message = cgs.reply
             current_message = await event.reply(
-                current_saved_welcome_message.format(my_first=my_first,
+                current_saved_goodbye_message.format(my_first=my_first,
                                                      my_last=my_last,
                                                      my_fullname=my_fullname,
                                                      my_username=my_username,
