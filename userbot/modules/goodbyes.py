@@ -31,7 +31,17 @@ async def goodbye_to_chat(event):
             title = chat.title if chat.title else "this chat"
             participants = await event.client.get_participants(chat)
             count = len(participants)
+            mention = "[{}](tg://user?id={})".format(a_user.first_name,
+                                                     a_user.id)
             my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+            first = a_user.first_name
+            last = a_user.last_name
+            if last:
+                fullname = f"{first} {last}"
+            else:
+                fullname = first
+            username = f"@{a_user.username}" if a_user.username else mention
+            userid = a_user.id
             my_first = me.first_name
             my_last = me.last_name
             if my_last:
@@ -49,7 +59,15 @@ async def goodbye_to_chat(event):
             elif cgs and cgs.reply:
                 current_saved_goodbye_message = cgs.reply
             current_message = await event.reply(
-                current_saved_goodbye_message.format(my_first=my_first,
+                current_saved_goodbye_message.format(mention=mention,
+                                                     title=title,
+                                                     count=count,
+                                                     first=first,
+                                                     last=last,
+                                                     fullname=fullname,
+                                                     username=username,
+                                                     userid=userid,
+                                                     my_first=my_first,
                                                      my_last=my_last,
                                                      my_fullname=my_fullname,
                                                      my_username=my_username,
@@ -138,7 +156,7 @@ CMD_HELP.update({
 .setgoodbye <farewell message> or reply to a message with .setgoodbye\
 \nUsage: Saves the message as a goodbye note in the chat.\
 \n\nAvailable variables for formatting goodbye messages :\
-\n`{my_first}, {my_fullname}, {my_last}, {my_mention}, {my_username}`\
+\n`{mention}, {title}, {count}, {first}, {last}, {fullname}, {userid}, {username}, {my_first}, {my_fullname}, {my_last}, {my_mention}, {my_username}`\
 \n\n.checkgoodbye\
 \nUsage: Check whether you have a goodbye note in the chat.\
 \n\n.rmgoodbye\
